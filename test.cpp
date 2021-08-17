@@ -1,10 +1,16 @@
 #include <iostream>
-#include <string>
-
 using namespace std;
-
-int main()
+class Tablica
 {
-
-    return 0;
-}
+    int ile, *Tab;
+public:
+    Tablica(int eN = 1) : ile(eN)
+    {
+        Tab = new int[ile];
+    }
+    int &operator[](unsigned int index) // definicja operatora []
+    {
+        return Tab[index];
+    }
+    ~Tablica() { delete[] Tab; }
+};
